@@ -1,13 +1,24 @@
+import sys
+input = sys.stdin.readline
+
 k = int(input())
 
-s = bin(k + 1)[3:]
+arr = []
 
-ans = ""
+while True:
+    if k == 1:
+        arr.append('4')
+        break
+    elif k == 2:
+        arr.append('7')
+        break
 
-for elem in s:
-    if elem == "0":
-        ans += "4"
+    if k % 2 == 1:
+        arr.append('4')
     else:
-        ans += "7"
+        arr.append('7')
 
-print(ans)
+    k = (k - 1) // 2
+
+for elem in arr[::-1]:
+    print(elem, end="")
